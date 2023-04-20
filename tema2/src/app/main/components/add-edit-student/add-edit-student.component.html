@@ -1,0 +1,59 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  (nzOnOk)="onOk()"
+  (nzOnCancel)="onCancel()"
+  [nzOkDisabled]="!studentEditForm.valid"
+>
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="studentEditForm">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input
+              type="text"
+              nz-input
+              formControlName="lName"
+              placeholder="Last name"
+            />
+          </nz-input-group>
+          <div class="red-text" *ngIf="lName?.errors?.['required']">
+            Last name is required!
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input
+              type="text"
+              nz-input
+              formControlName="fName"
+              placeholder="First name"
+            />
+          </nz-input-group>
+          <div class="red-text" *ngIf="fName?.errors?.['required']">
+            First name is required!
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input
+              type="number"
+              nz-input
+              formControlName="age"
+              placeholder="Age"
+            />
+          </nz-input-group>
+          <div class="red-text" *ngIf="age?.errors?.['required']">
+            Age is required!
+          </div>
+          <div class="red-text" *ngIf="age?.errors?.['min']">
+            The age must be a number greater than 0!
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>

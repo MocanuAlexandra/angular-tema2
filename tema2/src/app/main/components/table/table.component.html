@@ -1,6 +1,6 @@
 <div class="table-container">
   <div class="table-operations">
-    <button nz-button nzType="primary" class="addButton">Add</button>
+    <button nz-button nzType="primary" (click)="onAddClicked()" class="addButton">Add</button>
   </div>
 
   <nz-table #basicTable [nzData]="studentsList" [nzPageSize]="8">
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let data of basicTable.data">
-        <!-- ! pipe -->
+        <!--* pipe * -->
         <td nzLeft>{{ data.lName | uppercase }}</td>
         <td>{{ data.fName }}</td>
         <td>{{ data.age }}</td>
@@ -23,7 +23,7 @@
             class="edit-icon"
             nz-icon
             nzType="edit"
-            nzTheme="outline"
+            (click)="onEditClicked(data)"
           ></span>
         </td>
       </tr>
