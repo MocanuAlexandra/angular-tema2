@@ -1,0 +1,32 @@
+<div class="table-container">
+  <div class="table-operations">
+    <button nz-button nzType="primary" class="addButton">Add</button>
+  </div>
+
+  <nz-table #basicTable [nzData]="studentsList" [nzPageSize]="8">
+    <thead>
+      <tr>
+        <th nzLeft>Last name</th>
+        <th>First name</th>
+        <th>Age</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <!-- ! pipe -->
+        <td nzLeft>{{ data.lName | uppercase }}</td>
+        <td>{{ data.fName }}</td>
+        <td>{{ data.age }}</td>
+        <td>
+          <span
+            class="edit-icon"
+            nz-icon
+            nzType="edit"
+            nzTheme="outline"
+          ></span>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
